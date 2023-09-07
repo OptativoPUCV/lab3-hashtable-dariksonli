@@ -84,7 +84,9 @@ void enlarge(HashMap * map)
   map = createMap(dobleCapacidad);//Luego, los valores de la tabla se reinicializan con un nuevo arreglo con el **doble de capacidad**.
   for(long i = 0 ; i < dobleCapacidad ; i++)
     {
-      insertMap(map, old_buckets[i]->key, old_buckets[i]->value);
+      int* cont = (int*) malloc (sizeof(int));
+      *cont=1;
+      insertMap(map,old_buckets[i]->key,cont);
     }
 
   
