@@ -85,7 +85,8 @@ void enlarge(HashMap * map)
   for(long i = 0 ; i < dobleCapacidad ; i++)
     {
       Pair * dato = old_buckets[i];
-      if(dato != NULL || dato->key != NULL) insertMap(map,dato->key,dato->value);
+      if(dato != NULL && dato->key != NULL) 
+        insertMap(map, dato->key, dato->value);
     }
   
 }
