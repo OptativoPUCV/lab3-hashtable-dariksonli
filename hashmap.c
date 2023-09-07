@@ -139,7 +139,7 @@ Pair * firstMap(HashMap * map)
 
 Pair * nextMap(HashMap * map) 
 {
-  if(map == NULL || map->current == NULL) return NULL;
+  if(map == NULL || map->current == -1) return NULL;
   long posicion = map->current;
   long i = posicion;
   while(true)
