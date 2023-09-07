@@ -49,21 +49,23 @@ void insertMap(HashMap * map, char * key, void * value)
     map->buckets[posicion] = nuevo_par;
     map->size++;
     map->current = posicion;
-    free(nuevo_par);
+    //free(nuevo_par);
   }else{
     long posicion_colision = posicion;
-    long nueva_posicion = (posicion + 1)%map->capacity;
-    while(nueva_posicion != posicion_colision)
+    long nueva_posicion = (posicion);
+    
+    while(map->buckets[nueva_posicion] != NULL)
       {
+        nueva_posicion = (posicion + 1)%map->capacity;
+        
         if(map->buckets[nueva_posicion] == NULL || map->buckets[nueva_posicion]->key == NULL)
         {
           Pair * nuevo_par = createPair(key, value);
           map->buckets[posicion] = nuevo_par;
           map->size++;
+          free(nuevo_par);
           return;
         }
-        
-        nueva_posicion = (posicion + 1)%map->capacity;
       }
     
     return;

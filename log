@@ -45,3 +45,14 @@ Thu 07 Sep 2023 07:08:49 PM UTC:
  1 file changed, 3 insertions(+), 2 deletions(-)
  tests:  0|0
 805b352
+Thu 07 Sep 2023 07:11:39 PM UTC: 
+ hashmap.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:54:10: error: unused variable ‘posicion_colision’ [-Werror=unused-variable]
+   54 |     long posicion_colision = posicion;
+      |          ^~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ed8cf02
