@@ -89,6 +89,7 @@ Pair * searchMap(HashMap * map,  char * key)
 {   
   long posicion = hash(key, map->capacity);
   long auxPos = posicion;
+  
   while(true)
   {
     if(map->buckets[posicion]->key != NULL && strcmp(map->buckets[posicion]->key, key) == 0)
@@ -98,7 +99,7 @@ Pair * searchMap(HashMap * map,  char * key)
     }
 
     posicion = (posicion + 1) % map->capacity;
-    if(posicion == auxPos) return NULL;
+    if(posicion == auxPos || map->buckets[posicion] != NULL) return NULL;
   }
 
   return NULL;
