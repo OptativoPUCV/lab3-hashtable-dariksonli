@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <math.h>
 #include <ctype.h>
 #include "hashmap.h"
@@ -50,6 +51,20 @@ void insertMap(HashMap * map, char * key, void * value)
     map->current = posicion;
     //free(nuevo_par);
   }else{
+    long posicion_colision = posicion;
+    long nueva_posicion = (posicion + 1)%map->capacity;
+    while(nueva_posicion != posicion_colision)
+      {
+        if(map->buckets[nueva_posicion] == NULL || map->buckets[nueva_posicion]->key == NULL)
+        {
+          Pair * nuevo_par = createPair(key, value);
+          map->buckets[posicion] = nuevo_par;
+          map->size++;
+          return;
+        }
+        
+        nueva_posicion = (posicion + 1)%map->capacity;
+      }
     return;
   }
 
