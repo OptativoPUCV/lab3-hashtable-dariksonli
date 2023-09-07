@@ -137,3 +137,14 @@ Thu 07 Sep 2023 10:05:33 PM UTC:
  tests:  15|2
 total_score: 50/70
 e316812
+Thu 07 Sep 2023 10:16:40 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘nextMap’:
+hashmap.c:142:34: error: comparison between pointer and integer [-Werror]
+  142 |   if(map == NULL || map->current == NULL) return NULL;
+      |                                  ^~
+cc1: all warnings being treated as errors
+Compilation failed
+249817c
