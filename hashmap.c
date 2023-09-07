@@ -144,6 +144,9 @@ Pair * nextMap(HashMap * map)
   long posicion = map-> current;
   posicion = (posicion + 1) % map-> capacity;
   if(map->buckets[posicion] == NULL) return NULL;
-  else return map->buckets[posicion];
+  else{
+    map->current = posicion;
+    return map->buckets[posicion];
+  }
   return NULL;
 }
