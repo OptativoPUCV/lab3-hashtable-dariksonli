@@ -140,6 +140,17 @@ Pair * firstMap(HashMap * map)
 Pair * nextMap(HashMap * map) 
 {
   if(map == NULL) return NULL;
+  long posicion = map->current;
+  long i = posicion;
+  while(true)
+    {
+      i = (i + 1) % map->capacity;
+      if(map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+        map->current = i;
+        return map->buckets[i];
+      }
+      if(i == posicion) return NULL;
+    }
   
   return NULL;
 }
