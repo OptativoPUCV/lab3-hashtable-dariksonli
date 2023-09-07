@@ -43,34 +43,22 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) 
 {
   long posicion = hash(key, map->capacity);
-  if(map->buckets[posicion] == NULL)
-  {
-    Pair * nuevo_par = createPair(key, value);
-    map->buckets[posicion] = nuevo_par;
-    map->size++;
-    map->current = posicion;
-    //free(nuevo_par);
-  }else{
-    long posicion_colision = posicion;
-    long nueva_posicion = (posicion);
-    
-    while(map->buckets[nueva_posicion] != NULL)
-      {
-        nueva_posicion = (posicion + 1)%map->capacity;
-        
-        if(map->buckets[nueva_posicion] == NULL || map->buckets[nueva_posicion]->key == NULL)
-        {
-          Pair * nuevo_par = createPair(key, value);
-          map->buckets[posicion] = nuevo_par;
-          map->size++;
-          free(nuevo_par);
-          return;
-        }
-      }
-    
-    return;
+  
+  long copiaPos = posicion;
+
+  while(true){
+    Pair * aux = map-> buckets[posicion];
+    if(aux == NULL || aux->key == NULL){
+      Pair * nuevo = createPair(key, value);
+      map->buckets[posicion] = nuevo;
+      map->size++;
+      map->current = posicion;
+      return;
+    }
+    posicion = (posicion + 1) % map->capacity;
+    if(copiaPos == posicion) return;
   }
-  return;
+  
 }
 
 void enlarge(HashMap * map) {

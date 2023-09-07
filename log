@@ -56,3 +56,9 @@ hashmap.c:54:10: error: unused variable ‘posicion_colision’ [-Werror=unused-
 cc1: all warnings being treated as errors
 Compilation failed
 ed8cf02
+Thu 07 Sep 2023 07:25:04 PM UTC: 
+ hashmap.c | 30 +++++++++---------------------
+ 1 file changed, 9 insertions(+), 21 deletions(-)
+ tests:  5|4
+total_score: 30/70
+709ccde
