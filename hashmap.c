@@ -96,8 +96,9 @@ Pair * searchMap(HashMap * map,  char * key)
     
     if(map->buckets[posicion]->key != NULL && strcmp(map->buckets[posicion]->key, key) == 0)
     {
-      Pair * nuevo_par = createPair(key, map->buckets[posicion]->value);
-      return nuevo_par;
+      //Pair * nuevo_par = createPair(key, map->buckets[posicion]->value);
+      map->current = posicion;
+      return map->buckets[posicion];
     }
     if(posicion == auxPos) return NULL;
     posicion = (posicion + 1) % map->capacity;
