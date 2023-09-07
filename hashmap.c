@@ -92,14 +92,16 @@ Pair * searchMap(HashMap * map,  char * key)
   
   while(true)
   {
+    if(map->buckets[posicion] == NULL) return NULL;
+    
     if(map->buckets[posicion]->key != NULL && strcmp(map->buckets[posicion]->key, key) == 0)
     {
       Pair * nuevo_par = createPair(key, map->buckets[posicion]->value);
       return nuevo_par;
     }
-
+    if(posicion == auxPos) return NULL;
     posicion = (posicion + 1) % map->capacity;
-    if(posicion == auxPos || map->buckets[posicion] == NULL) return NULL;
+    
   }
 
   return NULL;
