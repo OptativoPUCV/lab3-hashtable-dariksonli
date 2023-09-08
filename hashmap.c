@@ -167,12 +167,12 @@ Pair * nextMap(HashMap * map)
   if(map == NULL) return NULL;
   //if(map->current < 0 || map->current > map-> capacity) return NULL;
   
-  long posicion = map->current;
-  long i = posicion;
+
+  long i = map->current;
   while(true)
     {
       i = (i + 1) % map->capacity;
-      if(i == posicion) return NULL;
+      if(i == 0) return NULL;
    
       if(map->buckets[i] != NULL && map->buckets[i]->key != NULL && map->buckets[i]->value != NULL){
         map->current = i;
