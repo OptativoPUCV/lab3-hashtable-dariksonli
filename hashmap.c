@@ -171,7 +171,7 @@ Pair * nextMap(HashMap * map)
   if(map->buckets[posicion] == NULL) return NULL;
   else{
     map->current = posicion;
-    return map->buckets[posicion];
+    return map->buckets[posicion]->value;
   }
   return NULL;
 }
