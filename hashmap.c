@@ -165,14 +165,20 @@ Pair * firstMap(HashMap * map)
 Pair * nextMap(HashMap * map) 
 {
   if(map == NULL) return NULL;
-  if(map->current == -1) return NULL;
-  long posicion = map-> current;
-  return map->buckets[posicion];
-  posicion = (posicion + 1) % map-> capacity;
-  if(map->buckets[posicion] == NULL) return NULL;
-  else{
-    map->current = posicion;
-    return map->buckets[posicion];
-  }
+  
+  long posicion = map->current;
+  long i = posicion;
+  while(true)
+    {
+      i = (i + 1) % map->capacity;
+      if(i == posicion) return NULL;
+   
+      if(map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+        map->current = i;
+        return map->buckets[i];
+      }
+    }
+  
+  
   return NULL;
 }
