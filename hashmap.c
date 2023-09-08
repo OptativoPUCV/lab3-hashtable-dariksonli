@@ -165,7 +165,7 @@ Pair * firstMap(HashMap * map)
 Pair * nextMap(HashMap * map) 
 {
   if(map == NULL) return NULL;
-  if(map->current < 0 ) return NULL;
+  if(map->current < 0 || map->current > map-> capacity) return NULL;
   
   long posicion = map->current;
   long i = posicion;
