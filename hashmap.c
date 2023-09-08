@@ -165,7 +165,7 @@ Pair * firstMap(HashMap * map)
 Pair * nextMap(HashMap * map) 
 {
   if(map == NULL) return NULL;
-  if(map->current < 0 || map->current > map-> capacity) return NULL;
+  //if(map->current < 0 || map->current > map-> capacity) return NULL;
   
   long posicion = map->current;
   long i = posicion;
@@ -174,7 +174,7 @@ Pair * nextMap(HashMap * map)
       i = (i + 1) % map->capacity;
       if(i == posicion) return NULL;
    
-      if(map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+      if(map->buckets[i] != NULL && map->buckets[i]->key != NULL && map->buckets[i]->value != NULL){
         map->current = i;
         return map->buckets[i];
       }
