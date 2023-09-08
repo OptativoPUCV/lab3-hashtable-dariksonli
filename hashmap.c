@@ -80,9 +80,10 @@ void enlarge(HashMap * map)
     enlarge_called = 1; //no borrar (testing purposes)
   
   long dobleCapacidad = (map->capacity)*2; //Duplique el valor de la variable capacity. 
-  Pair ** old_buckets = map->buckets; //mantener referenciado el arreglo *actual/antiguo* de la tabla con un puntero auxiliar.
+  //Pair ** old_buckets = map->buckets; //mantener referenciado el arreglo *actual/antiguo* de la tabla con un puntero auxiliar.
   map->capacity = dobleCapacidad;
   map->size = 0;
+  
   /*for(long i = 0 ; i < dobleCapacidad ; i++)
     {
       Pair * dato = old_buckets[i];
