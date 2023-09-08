@@ -83,13 +83,12 @@ void enlarge(HashMap * map)
   Pair ** old_buckets = map->buckets; //mantener referenciado el arreglo *actual/antiguo* de la tabla con un puntero auxiliar.
   map->capacity = dobleCapacidad;
   map->size = 0;
-  for(long i = 0 ; i < dobleCapacidad ; i++)
+  /*for(long i = 0 ; i < dobleCapacidad ; i++)
     {
       Pair * dato = old_buckets[i];
       if(dato != NULL && dato->key != NULL && dato->value!=NULL) 
         insertMap(map, dato->key, dato->value);
-    }
-    map->current++;
+    }*/
 }
 
 

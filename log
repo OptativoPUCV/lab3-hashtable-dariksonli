@@ -261,3 +261,14 @@ Fri 08 Sep 2023 02:19:43 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 e1fe0c8
+Fri 08 Sep 2023 04:41:18 PM UTC: 
+ hashmap.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:83:11: error: unused variable ‘old_buckets’ [-Werror=unused-variable]
+   83 |   Pair ** old_buckets = map->buckets; //mantener referenciado el arreglo *actual/antiguo* de la tabla con un puntero auxiliar.
+      |           ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5f1c4d1
