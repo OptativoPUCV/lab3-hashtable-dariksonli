@@ -89,7 +89,7 @@ void enlarge(HashMap * map)
       if(dato != NULL && dato->key != NULL && dato->value!=NULL) 
         insertMap(map, dato->key, dato->value);
     }
-  
+    map->current++;
 }
 
 
